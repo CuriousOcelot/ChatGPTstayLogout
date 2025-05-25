@@ -1,0 +1,26 @@
+name: Package Chrome Extension
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      
+      - name: List directory
+        run: ls -R
+        
+      - name: Zip extension folder
+        run: |
+          zip -r ChatGPTstayLogout.zip content.js manifest.json icons
+
+      - name: Upload Artifacts
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        uses: actions/upload-artifact@v4
+        with:
+          path: '*.zip'
+  
