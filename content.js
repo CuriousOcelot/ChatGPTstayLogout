@@ -28,7 +28,6 @@ const timeoutId = setTimeout(() => {
   observer.disconnect();
   if(isLogoutClicked){
       console.log("⏱️ 'Stay logged out' already clicked.");
-	 	  
   }else{
       console.log("⏱️ Gave up after 15 seconds. 'Stay logged out' not found.");
   }
